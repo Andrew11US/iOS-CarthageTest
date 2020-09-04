@@ -14,14 +14,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getCode()
+    }
+    
+    func getCode() {
         AF.request("https://api.duckduckgo.com").validate().responseJSON { response in
             print(response.response?.statusCode ?? 0)
         }
     }
-    
-        
-    
-
-
 }
 
