@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,23 @@
 		01EE07C82502BF7900B4F0AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01EE07C62502BF7900B4F0AE /* Main.storyboard */; };
 		01EE07CA2502BF7A00B4F0AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01EE07C92502BF7A00B4F0AE /* Assets.xcassets */; };
 		01EE07CD2502BF7A00B4F0AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01EE07CB2502BF7A00B4F0AE /* LaunchScreen.storyboard */; };
+		01EE07D62502C21D00B4F0AE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EE07D52502C21D00B4F0AE /* Alamofire.framework */; };
+		01EE07D72502C21D00B4F0AE /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01EE07D52502C21D00B4F0AE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		01EE07D82502C21D00B4F0AE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				01EE07D72502C21D00B4F0AE /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		01EE07BD2502BF7900B4F0AE /* CarthageTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarthageTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +40,7 @@
 		01EE07C92502BF7A00B4F0AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01EE07CC2502BF7A00B4F0AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01EE07CE2502BF7A00B4F0AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01EE07D52502C21D00B4F0AE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01EE07D62502C21D00B4F0AE /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +60,7 @@
 			children = (
 				01EE07BF2502BF7900B4F0AE /* CarthageTest */,
 				01EE07BE2502BF7900B4F0AE /* Products */,
+				01EE07D42502C21D00B4F0AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +86,14 @@
 			path = CarthageTest;
 			sourceTree = "<group>";
 		};
+		01EE07D42502C21D00B4F0AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01EE07D52502C21D00B4F0AE /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +104,8 @@
 				01EE07B92502BF7900B4F0AE /* Sources */,
 				01EE07BA2502BF7900B4F0AE /* Frameworks */,
 				01EE07BB2502BF7900B4F0AE /* Resources */,
+				01EE07D82502C21D00B4F0AE /* Embed Frameworks */,
+				01EE07D92502C26E00B4F0AE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -132,6 +161,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01EE07D92502C26E00B4F0AE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		01EE07B92502BF7900B4F0AE /* Sources */ = {
@@ -286,6 +336,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PTRW36GG78;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CarthageTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,6 +358,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PTRW36GG78;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CarthageTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

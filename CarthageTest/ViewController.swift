@@ -7,13 +7,20 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        AF.request("https://api.duckduckgo.com").validate().responseJSON { response in
+            print(response.response?.statusCode ?? 0)
+        }
     }
+    
+        
+    
 
 
 }
